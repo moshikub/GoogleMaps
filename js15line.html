@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Javascripts 15 Line!!</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var time =setTimeout(function(){ document.body.innerHTML ='<p align="center">ไม่สามารถเข้าถึง Geolocation ของเครื่องคุณได้กรุณาลองใหม่อีกครั้งหรือ <a href="js15line.html">คลิกที่นี่</a></p>'; },3000);
+		if((typeof( window.navigator) != 'undefined') && !!navigator.geolocation ) { navigator.geolocation.getCurrentPosition(function(position) {
+				document.body.innerHTML ="<p align='center'>ตำแหน่งที่อยู่ปัจจุบันของคุณคือ</p><p align='center'><img src='"+"http://maps.googleapis.com/maps/api/staticmap?center="+position.coords.latitude+","+position.coords.longitude+"&zoom=15&markers=color:red%7Ccolor:red%7C"+position.coords.latitude+","+position.coords.longitude+"&size="+(screen.width-100)+"x"+(screen.height-300)+"&sensor=false"+"'></p>"; window.clearTimeout(time);
+		}); } else { document.body.innerHTML='<p align="center">เว็บบราวเซอร์ไม่สนับสนุนการทำงาน Geolocation</p>'; window.clearTimeout(time); }
+    </script>
+</body>
+</html>
